@@ -12,6 +12,8 @@ import androidx.core.view.WindowCompat
 
 private val LightColorScheme = lightColorScheme(
 	primary = Azure,
+	surface = Surface,
+	background = Background
 
 	/* Other default colors to override
     background = Color(0xFFFFFBFE),

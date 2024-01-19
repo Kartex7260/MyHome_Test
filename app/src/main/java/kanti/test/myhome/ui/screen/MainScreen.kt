@@ -28,7 +28,6 @@ import kanti.test.myhome.R
 fun TopBar(
 	navController: NavController
 ) {
-
 	Column(
 		modifier = Modifier
 			.shadow(2.dp)

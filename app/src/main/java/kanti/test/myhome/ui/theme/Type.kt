@@ -11,7 +11,8 @@ import kanti.test.myhome.R
 val Typography = Typography(
 	bodyLarge = TextStyle(
 		fontFamily = FontFamily(fonts = arrayOf(Font(R.font.circe))),
-		fontSize = 17.sp
+		fontSize = 17.sp,
+		lineHeight = 25.06.sp
 	),
 
     titleLarge = TextStyle(

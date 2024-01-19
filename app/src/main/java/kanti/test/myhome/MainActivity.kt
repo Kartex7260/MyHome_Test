@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Content() {
 	MyHomeTheme {
-		Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.surface) {
+		Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
 			MainScreen()
 		}
 	}
