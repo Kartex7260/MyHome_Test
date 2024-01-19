@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">MyHome</string>
+    <string name="app_name">My Home</string>
+    
+    <string name="nav_host_cameras">cameras</string>
+    <string name="nav_host_doors">doors</string>
+
+    <string name="cameras">Cameras</string>
+    <string name="doors">Doors</string>
 </resources>
