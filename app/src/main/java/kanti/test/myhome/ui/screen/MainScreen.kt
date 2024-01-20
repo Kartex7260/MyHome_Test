@@ -1,14 +1,16 @@
 package kanti.test.myhome.ui.screen
 
-import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material3.CenterAlignedTopAppBar
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Tab
-import androidx.compose.material3.TabRow
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Tab
+import androidx.compose.material.TabRow
+import androidx.compose.material.Text
+import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -23,7 +25,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import kanti.test.myhome.R
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TopBar(
 	navController: NavController
@@ -32,20 +33,33 @@ fun TopBar(
 		modifier = Modifier
 			.shadow(2.dp)
 	) {
-		CenterAlignedTopAppBar(
-			title = {
-				Text(text = stringResource(id = R.string.app_name))
+		TopAppBar(
+			modifier = Modifier.height(62.dp),
+			backgroundColor = MaterialTheme.colors.surface
+		) {
+			Row(
+				modifier = Modifier.fillMaxWidth(),
+				horizontalArrangement = Arrangement.Center
+			) {
+				Text(
+					text = stringResource(id = R.string.app_name),
+					style = MaterialTheme.typography.h6
+				)
 			}
-		)
+		}
 		var selectedTab by rememberSaveable {
 			mutableIntStateOf(0)
 		}
 		TabRow(
+			modifier = Modifier.height(44.dp),
 			selectedTabIndex = selectedTab,
-			contentColor = MaterialTheme.colorScheme.onSurface
+			backgroundColor = MaterialTheme.colors.surface,
+			contentColor = MaterialTheme.colors.primary
 		) {
 			val camerasRoute = stringResource(id = R.string.nav_host_cameras)
 			val doorsRoute = stringResource(id = R.string.nav_host_doors)
+
+			val contentColor = MaterialTheme.colors.onSurface
 
 			Tab(
 				selected = false,
@@ -54,7 +68,8 @@ fun TopBar(
 					navController.navigate(route = camerasRoute)
 				},
 				text = { Text(text = stringResource(id = R.string.cameras)) },
-				interactionSource = MutableInteractionSource()
+				selectedContentColor = contentColor,
+				unselectedContentColor = contentColor
 			)
 			Tab(
 				selected = false,
@@ -62,7 +77,9 @@ fun TopBar(
 					selectedTab = 1
 					navController.navigate(route = doorsRoute)
 				},
-				text = { Text(text = stringResource(id = R.string.doors)) }
+				text = { Text(text = stringResource(id = R.string.doors)) },
+				selectedContentColor = contentColor,
+				unselectedContentColor = contentColor
 			)
 		}
 	}
